@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const cors = require("cors")
 
 const app = express();
 
@@ -11,6 +12,7 @@ const User = require("./models/User");
 
 // Config JSON response
 app.use(express.json());
+app.use(cors())
 
 // Open Route
 app.get("/", (req, res) => {
@@ -117,7 +119,9 @@ app.post("/auth/login", async (req, res) => {
   }
 
   // check if password match
-  const checkPassword = await bcrypt.compare(password, user.password);
+  const checkPassword = await bcrypt.compare(password, user.passwordHash);
+
+  console.log(checkPassword)
 
   if (!checkPassword) {
     return res.status(422).json({ msg: "Senha inválida" });
