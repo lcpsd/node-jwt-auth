@@ -2,14 +2,14 @@
 
 A simple node jwt api thats alow to register and login, using mongodb to storage
 
-# Routes
+## Routes
 
      - /auth/login //to login
      - /auth/register //to create a new user
      - /user/:id //to get user data by user id
 
  
- # DEMO .env variables
+ ## DEMO .env variables
 
     - DB_USER=root
     
@@ -18,5 +18,9 @@ A simple node jwt api thats alow to register and login, using mongodb to storage
     - SECRET=aksjdbkasdiashduiasdhiuasdhihsdias
     
     - PORT=3333 //server port
+    
+ ## How to run
+ 1. Create a .env file and put what's in above
+ 2. Run yarn start
     
  Especial thanks to matheus@horadecodar.com.br
