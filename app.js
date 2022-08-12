@@ -152,6 +152,8 @@ mongoose
   )
   .then(() => {
     console.log("Conectou ao banco!");
-    app.listen(3333);
+    app.listen(3333 || process.env.PORT, () => {
+      console.log("Servidor iniciado!");
+    });
   })
   .catch((err) => console.log(err));
